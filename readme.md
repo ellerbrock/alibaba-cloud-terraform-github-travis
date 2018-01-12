@@ -2,16 +2,12 @@
 
 # Alibaba Cloud Infrastructure as Code Quickstart [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg)](https://github.com/ellerbrock/open-source-badges/) [![Gitter Chat](https://badges.gitter.im/frapsoft/frapsoft.svg)](https://gitter.im/frapsoft/frapsoft/) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-## Build Status
-
-[![Build Status](https://travis-ci.org/ellerbrock/alibaba-cloud-terraform-github-travis.svg?branch=master)](https://travis-ci.org/ellerbrock/alibaba-cloud-terraform-github-travis)
-
 
 ## What you need
 
 - [Github Account](https://github.com/join)
 - [Travis Account](https://travis-ci.org/) for Continuous Integration and Delivery
-- [Terraform](https://www.terraform.io/) binaries for local testing
+- [Terraform](https://www.terraform.io/) installed for local testing
 
 ## Store Remote State (TODO)
 
