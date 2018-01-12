@@ -1,0 +1,30 @@
+sudo: required
+
+language: bash
+
+dist: trusty
+
+group: deprecated-2017Q4
+
+services:
+  - docker
+
+cache:
+  directories:
+    - ".terraform"
+
+env:
+  - TRAVIS_SECURE_ENV_VARS=true
+
+before_script:
+  - docker pull hashicorp/terraform:light
+  - docker run -e "ALICLOUD_ACCESS_KEY=${ALICLOUD_ACCESS_KEY}" -e "ALICLOUD_SECRET_KEY=${ALICLOUD_SECRET_KEY}" -e "ALICLOUD_REGION=${ALICLOUD_REGION}" -v $(pwd):/x/ -w /x/ hashicorp/terraform:light init
+  - docker run -e "ALICLOUD_ACCESS_KEY=${ALICLOUD_ACCESS_KEY}" -e "ALICLOUD_SECRET_KEY=${ALICLOUD_SECRET_KEY}" -e "ALICLOUD_REGION=${ALICLOUD_REGION}" -v $(pwd):/x/ -w /x/ hashicorp/terraform:light validate
+  - docker run -e "ALICLOUD_ACCESS_KEY=${ALICLOUD_ACCESS_KEY}" -e "ALICLOUD_SECRET_KEY=${ALICLOUD_SECRET_KEY}" -e "ALICLOUD_REGION=${ALICLOUD_REGION}" -v $(pwd):/x/ -w /x/ hashicorp/terraform:light plan
+  - docker run -e "ALICLOUD_ACCESS_KEY=${ALICLOUD_ACCESS_KEY}" -e "ALICLOUD_SECRET_KEY=${ALICLOUD_SECRET_KEY}" -e "ALICLOUD_REGION=${ALICLOUD_REGION}" -v $(pwd):/x/ -w /x/ hashicorp/terraform:light apply -auto-approve
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
