@@ -139,7 +139,7 @@ variable "vpc_name" {
 
 variable "vpc_cidr_block" {
   description = "default vpc cidr"
-  default     = "10.0.0.0/8"
+  default     = "192.168.0.0/16"
 }
 ```
 
