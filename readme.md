@@ -9,11 +9,11 @@
 - [Travis Account](https://travis-ci.org/) for Continuous Integration and Delivery
 - [Terraform](https://www.terraform.io/) installed for local testing
 
-## Store Remote State (TODO)
+## Remote Storage
 
-My Setup before with AWS was to store the remote state in in a versioned and encrypted [S3 Bucket](https://www.terraform.io/docs/backends/types/s3.html) and had locking via DynamoDB activated. 
+A first draft from a working but not yet production ready version you can find here: <https://github.com/ellerbrock/terraform-consul-backend>
 
-I have to figure out how to do this with Alibaba Cloud, in case you have a solution for that already please let me know about (just registered yesterday for an account there).
+In this setup we could make a initial bootstraping of the account, setup a Consul Cluster and then import the Remote State to there, even with locking support.
 
 
 ## Configuration
